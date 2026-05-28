@@ -382,6 +382,140 @@ h1 {
     font-size: 0.92rem;
 }
 
+.tagline-billboard {
+    padding: 10px 0;
+    background:
+        radial-gradient(circle at 12% 0%, rgba(229, 166, 74, 0.16), transparent 26rem),
+        linear-gradient(180deg, #06140f 0%, #091b14 100%);
+}
+
+.billboard-frame {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 196, 109, 0.32);
+    border-bottom: 1px solid rgba(255, 196, 109, 0.32);
+    border-radius: 0;
+    background:
+        linear-gradient(180deg, rgba(255, 196, 109, 0.08), rgba(255, 196, 109, 0.02)),
+        #07100d;
+    box-shadow:
+        0 0 34px rgba(229, 166, 74, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        inset 0 -1px 0 rgba(255, 196, 109, 0.12);
+}
+
+.billboard-frame::before {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background:
+        linear-gradient(90deg, #07100d 0%, transparent 12%, transparent 88%, #07100d 100%),
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 6px);
+    content: "";
+    pointer-events: none;
+}
+
+.billboard-label {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 16px 0;
+    color: rgba(255, 248, 236, 0.72);
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.billboard-label span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ff3b30;
+    box-shadow: 0 0 14px rgba(255, 59, 48, 0.86);
+    animation: billboard-pulse 1.4s ease-in-out infinite;
+}
+
+.billboard-label p {
+    margin: 0;
+}
+
+.billboard-track {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: max-content;
+    padding: 8px 0 12px;
+    color: var(--gold-bright);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(0.86rem, 2.1vw, 1.55rem);
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    text-shadow:
+        0 0 10px rgba(255, 196, 109, 0.58),
+        0 0 28px rgba(229, 166, 74, 0.32);
+    animation: billboard-scroll 30s linear infinite;
+}
+
+.billboard-line {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding-right: 24px;
+    white-space: nowrap;
+}
+
+.billboard-line span {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.billboard-line span::after {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 248, 236, 0.72);
+    box-shadow: 0 0 14px rgba(255, 248, 236, 0.58);
+    content: "";
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+@keyframes billboard-scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes billboard-pulse {
+    0%,
+    100% {
+        opacity: 0.55;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
 @media (max-width: 980px) {
     .site-header {
         width: min(720px, calc(100% - 24px));
@@ -478,6 +612,14 @@ h1 {
         width: auto;
         margin-top: 0;
     }
+
+    .tagline-billboard {
+        padding: 10px 0;
+    }
+
+    .billboard-track {
+        animation-duration: 24s;
+    }
 }
 
 @media (max-width: 620px) {
@@ -525,5 +667,22 @@ h1 {
 
     .hero-card strong {
         font-size: 1.2rem;
+    }
+
+    .billboard-label {
+        padding: 12px 14px 0;
+        font-size: 0.68rem;
+    }
+
+    .billboard-line,
+    .billboard-line span {
+        gap: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .billboard-track,
+    .billboard-label span {
+        animation: none;
     }
 }
