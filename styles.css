@@ -383,7 +383,7 @@ h1 {
 }
 
 .tagline-billboard {
-    padding: 10px 0;
+    padding: 6px 0;
     background:
         radial-gradient(circle at 12% 0%, rgba(229, 166, 74, 0.16), transparent 26rem),
         linear-gradient(180deg, #06140f 0%, #091b14 100%);
@@ -423,17 +423,17 @@ h1 {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 7px 16px 0;
+    padding: 5px 16px 0;
     color: rgba(255, 248, 236, 0.72);
-    font-size: 0.64rem;
+    font-size: 0.58rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
 
 .billboard-label span {
-    width: 7px;
-    height: 7px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: #ff3b30;
     box-shadow: 0 0 14px rgba(255, 59, 48, 0.86);
@@ -449,10 +449,10 @@ h1 {
     z-index: 1;
     display: flex;
     width: max-content;
-    padding: 8px 0 12px;
+    padding: 6px 0 9px;
     color: var(--gold-bright);
     font-family: "Playfair Display", Georgia, serif;
-    font-size: clamp(0.86rem, 2.1vw, 1.55rem);
+    font-size: clamp(0.74rem, 1.65vw, 1.18rem);
     font-weight: 700;
     line-height: 1;
     text-transform: uppercase;
@@ -465,20 +465,20 @@ h1 {
 .billboard-line {
     display: flex;
     align-items: center;
-    gap: 24px;
-    padding-right: 24px;
+    gap: 18px;
+    padding-right: 18px;
     white-space: nowrap;
 }
 
 .billboard-line span {
     display: inline-flex;
     align-items: center;
-    gap: 24px;
+    gap: 18px;
 }
 
 .billboard-line span::after {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
     background: rgba(255, 248, 236, 0.72);
     box-shadow: 0 0 14px rgba(255, 248, 236, 0.58);
@@ -514,6 +514,156 @@ h1 {
     50% {
         opacity: 1;
     }
+}
+
+.about-section {
+    position: relative;
+    overflow: hidden;
+    padding: 112px 0;
+    background:
+        radial-gradient(circle at 88% 18%, rgba(229, 166, 74, 0.12), transparent 26rem),
+        linear-gradient(180deg, #091b14 0%, #07130f 100%);
+}
+
+.about-section::before {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 56px 56px;
+    content: "";
+    opacity: 0.32;
+    pointer-events: none;
+}
+
+.about-shell {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    width: min(1180px, calc(100% - 32px));
+    grid-template-columns: minmax(320px, 0.92fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(48px, 7vw, 96px);
+    margin: 0 auto;
+}
+
+.about-media {
+    position: relative;
+    min-height: 620px;
+}
+
+.about-main-image {
+    width: min(460px, 84%);
+    height: 560px;
+    border: 1px solid rgba(255, 196, 109, 0.24);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    object-fit: cover;
+}
+
+.about-floating-image {
+    position: absolute;
+    right: 0;
+    bottom: 42px;
+    width: min(280px, 52%);
+    aspect-ratio: 1 / 1.18;
+    overflow: hidden;
+    border: 10px solid #07130f;
+    border-radius: 8px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+}
+
+.about-floating-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-badge {
+    position: absolute;
+    top: 56px;
+    right: 8px;
+    width: 148px;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 8px;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.06)),
+        rgba(10, 20, 16, 0.64);
+    box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(20px) saturate(1.3);
+    -webkit-backdrop-filter: blur(20px) saturate(1.3);
+}
+
+.about-badge strong,
+.about-badge span {
+    display: block;
+}
+
+.about-badge strong {
+    color: var(--gold-bright);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.35rem;
+    line-height: 1;
+}
+
+.about-badge span {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 0.82rem;
+    line-height: 1.35;
+}
+
+.about-copy h2 {
+    max-width: 640px;
+    margin: 0;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(2.35rem, 5vw, 5.1rem);
+    line-height: 0.98;
+}
+
+.about-copy > p:not(.eyebrow) {
+    max-width: 650px;
+    margin: 24px 0 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+.about-points {
+    display: grid;
+    gap: 16px;
+    margin-top: 34px;
+}
+
+.about-points div {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6px 16px;
+    padding: 18px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.about-points span {
+    grid-row: span 2;
+    color: var(--gold-bright);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.45rem;
+    line-height: 1;
+}
+
+.about-points strong {
+    color: var(--ink);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.28rem;
+    line-height: 1.1;
+}
+
+.about-points p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.55;
 }
 
 @media (max-width: 980px) {
@@ -614,11 +764,28 @@ h1 {
     }
 
     .tagline-billboard {
-        padding: 10px 0;
+        padding: 6px 0;
     }
 
     .billboard-track {
         animation-duration: 24s;
+    }
+
+    .about-section {
+        padding: 86px 0;
+    }
+
+    .about-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .about-media {
+        min-height: 540px;
+    }
+
+    .about-main-image {
+        width: 72%;
+        height: 500px;
     }
 }
 
@@ -670,13 +837,50 @@ h1 {
     }
 
     .billboard-label {
-        padding: 12px 14px 0;
-        font-size: 0.68rem;
+        padding: 5px 14px 0;
+        font-size: 0.56rem;
     }
 
     .billboard-line,
     .billboard-line span {
-        gap: 18px;
+        gap: 14px;
+    }
+
+    .about-section {
+        padding: 68px 0;
+    }
+
+    .about-media {
+        min-height: 420px;
+    }
+
+    .about-main-image {
+        width: 84%;
+        height: 390px;
+    }
+
+    .about-floating-image {
+        bottom: 18px;
+        width: 46%;
+        border-width: 6px;
+    }
+
+    .about-badge {
+        top: 22px;
+        width: 132px;
+        padding: 14px;
+    }
+
+    .about-copy > p:not(.eyebrow) {
+        font-size: 1rem;
+    }
+
+    .about-points div {
+        grid-template-columns: 1fr;
+    }
+
+    .about-points span {
+        grid-row: auto;
     }
 }
 
